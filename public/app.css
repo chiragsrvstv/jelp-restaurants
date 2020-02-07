@@ -1,0 +1,20 @@
+
+
+.main{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.new-page{
+  width: 30%;
+  margin: 23px auto;
+}
+.new-heading{
+  text-align: center;
+}
+
+#delete-form{
+  display: inline;
+  padding: 0.2em;
+  margin: 0.8em;
+}

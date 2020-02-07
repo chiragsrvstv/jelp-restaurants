@@ -1,0 +1,37 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+
+  <!-- <h1> The show tmplt </h1> -->
+
+  <h1> <%= campground.name %> </h1>
+
+  <a class="btn btn-warning" href="/campgrounds/<%=campground._id%>/edit"> Edit </a>
+  <form id="delete-form" class="" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="Post">
+    <button class="btn btn-danger"> Delete </button>
+
+  </form>
+
+  <img src="<%= campground.image%>">
+
+  <p> <%= campground.description %> </p>
+
+  <p>
+    <em> <strong> Submitted by <%= campground.author.username %> </strong> </em>
+  </p>
+
+
+  <% campground.comments.forEach(function(comment){ %>
+  <p>
+    <strong> <%= comment.author.username %> </strong>
+    <%= comment.text %>
+  </p>
+  <% }); %>
+
+  <p>
+    <a class="btn btn-success" href="/campgrounds/<%=campground._id%>/comments/new"> Add A Comment </a>
+  </p>
+
+</div>
+
+<% include ../partials/footer.ejs %>
