@@ -25,7 +25,7 @@ router.post("/register", function(req, res) {
 //logging
 
 router.get("/login", function(req, res) {
-  res.render('login.ejs');
+  res.render('login.ejs', {message: req.flash("error")});
 });
 
 router.post("/login",passport.authenticate("local",{

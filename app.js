@@ -8,7 +8,8 @@ var express     = require("express"),
     passport    = require("passport"),
     LocalStategy = require("passport-local"),
     User        = require("./models/user"),
-    methodOverride = require("method-override");
+    methodOverride = require("method-override"),
+    flash         = require('connect-flash');
 
 const commentRoutes     = require("./routes/comments"),
       campgroundRoutes  = require("./routes/campgrounds"),
@@ -18,6 +19,7 @@ const commentRoutes     = require("./routes/comments"),
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
+app.use(flash());
 
 // server will listen for localhost
 app.listen(3000, function(){
