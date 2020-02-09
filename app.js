@@ -44,6 +44,8 @@ passport.deserializeUser(User.deserializeUser());
 // this middleware gives every template the username object
 app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
+  res.locals.error     = req.flash("error");
+  res.locals.success      = req.flash("success")
   next();
 });
 

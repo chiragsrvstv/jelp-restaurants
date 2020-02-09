@@ -27,6 +27,7 @@ router.post('/campgrounds/:id/comments',middleware.isLoggedIn ,function(req, res
       console.log(req.body.comment);
       Comment.create(req.body.comment, function(err, comment) {
         if(err){
+          req.flash("error", "Something Went Wrong")
           console.log(err);
         }
         else{
@@ -38,6 +39,7 @@ router.post('/campgrounds/:id/comments',middleware.isLoggedIn ,function(req, res
           comment.save();
           foundCampground.save();
           console.log(comment);
+          req.flash("success", "successfully Added Comment");
           res.redirect('/campgrounds/' + foundCampground._id);
         }
       })
@@ -80,6 +82,7 @@ router.delete("/campgrounds/:id/comments/:comment_id", middleware.checkCommentOw
     if(err) {
       res.redirect("back");
     } else {
+      req.flash("success", "Comment Deleted");
       res.redirect("/campgrounds/" + req.params.id);
     }
   })
