@@ -123,7 +123,7 @@ function isLoggedIn(req, res, next) {
   res.redirect("/login");
 }
 
-// middleware for
+// middleware for authenticating a user
 function checkCampgroundOwnership(req, res, next) {
   if (req.isAuthenticated()) {
     Campground.findById(req.params.id, function(err, foundCampground) {
