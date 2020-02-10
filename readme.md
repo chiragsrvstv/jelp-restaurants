@@ -1,6 +1,6 @@
 # YelpCamp
 
-This is a yelp like web application but for campgrounds.
+This is a yelp like web application for Campgrounds, built with Node, Express and Mongo.
 
 ## Installation
 1. Install NodeJS, for help visit: https://nodejs.org/en/download/ <br>
